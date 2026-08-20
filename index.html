@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Cyber Binary Lab</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated Cyber Background -->
+    <div class="background">
+        <div class="grid"></div>
+        <div class="particles"></div>
+        <div class="binary-rain"></div>
+    </div>
+
+    <!-- Main App -->
+    <main class="app">
+
+        <header class="header">
+            <div class="logo">⌬</div>
+
+            <div>
+                <h1>CYBER BINARY LAB</h1>
+                <p>Text ↔ Binary Converter</p>
+            </div>
+
+            <button id="soundToggle" class="sound-btn">
+                🔇
+            </button>
+        </header>
+
+
+        <!-- Converter -->
+        <section class="converter">
+
+            <!-- Text Input -->
+            <div class="panel">
+
+                <div class="panel-header">
+                    <span>TEXT INPUT</span>
+                    <span id="textStats">0 characters</span>
+                </div>
+
+                <textarea
+                    id="textInput"
+                    placeholder="Enter your text here..."
+                    spellcheck="false"></textarea>
+
+                <div class="buttons">
+
+                    <button id="encodeBtn" class="primary">
+                        ⚡ TEXT → BINARY
+                    </button>
+
+                    <button id="clearTextBtn">
+                        🗑 CLEAR
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Center Controls -->
+            <div class="center-controls">
+
+                <button id="swapBtn" class="swap">
+                    ⇄
+                </button>
+
+            </div>
+
+
+            <!-- Binary Output -->
+            <div class="panel">
+
+                <div class="panel-header">
+                    <span>BINARY OUTPUT</span>
+                    <span id="binaryStats">0 bits</span>
+                </div>
+
+                <textarea
+                    id="binaryInput"
+                    placeholder="Binary data will appear here..."
+                    spellcheck="false"></textarea>
+
+                <div class="buttons">
+
+                    <button id="decodeBtn" class="primary">
+                        ⚡ BINARY → TEXT
+                    </button>
+
+                    <button id="copyBtn">
+                        📋 COPY
+                    </button>
+
+                    <button id="clearBinaryBtn">
+                        🗑 CLEAR
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Status -->
+        <div id="status" class="status">
+            <span class="status-dot"></span>
+            SYSTEM READY
+        </div>
+
+
+        <!-- Footer -->
+        <footer>
+            <span>CYBER BINARY LAB</span>
+            <span>•</span>
+            <span>OFFLINE TOOL</span>
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
