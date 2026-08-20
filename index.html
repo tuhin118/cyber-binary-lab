@@ -6,6 +6,16 @@
 
     <title>Cyber Binary Lab | Md Taowhidul Islam Tuhin</title>
 
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#03050b">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Cyber Binary Lab">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,20 +28,28 @@
         <div class="binary-rain"></div>
     </div>
 
+
     <!-- Main App -->
     <main class="app">
 
         <!-- Header -->
         <header class="header">
 
-            <div class="logo">⌬</div>
+            <div class="logo">
+                ⌬
+            </div>
 
             <div>
                 <h1>CYBER BINARY LAB</h1>
                 <p>Text ↔ Binary Converter</p>
             </div>
 
-            <button id="soundToggle" class="sound-btn">
+            <button
+                id="soundToggle"
+                class="sound-btn"
+                type="button"
+                aria-label="Toggle sound"
+            >
                 🔇
             </button>
 
@@ -46,21 +64,32 @@
 
                 <div class="panel-header">
                     <span>TEXT INPUT</span>
-                    <span id="textStats">0 characters</span>
+                    <span id="textStats">
+                        0 characters
+                    </span>
                 </div>
 
                 <textarea
                     id="textInput"
                     placeholder="Enter your text here..."
-                    spellcheck="false"></textarea>
+                    spellcheck="false"
+                    autocomplete="off"
+                ></textarea>
 
                 <div class="buttons">
 
-                    <button id="encodeBtn" class="primary">
+                    <button
+                        id="encodeBtn"
+                        class="primary"
+                        type="button"
+                    >
                         ⚡ TEXT → BINARY
                     </button>
 
-                    <button id="clearTextBtn">
+                    <button
+                        id="clearTextBtn"
+                        type="button"
+                    >
                         🗑 CLEAR
                     </button>
 
@@ -72,7 +101,12 @@
             <!-- Center Controls -->
             <div class="center-controls">
 
-                <button id="swapBtn" class="swap">
+                <button
+                    id="swapBtn"
+                    class="swap"
+                    type="button"
+                    aria-label="Swap text and binary"
+                >
                     ⇄
                 </button>
 
@@ -84,25 +118,39 @@
 
                 <div class="panel-header">
                     <span>BINARY OUTPUT</span>
-                    <span id="binaryStats">0 bits</span>
+                    <span id="binaryStats">
+                        0 bits
+                    </span>
                 </div>
 
                 <textarea
                     id="binaryInput"
                     placeholder="Binary data will appear here..."
-                    spellcheck="false"></textarea>
+                    spellcheck="false"
+                    autocomplete="off"
+                ></textarea>
 
                 <div class="buttons">
 
-                    <button id="decodeBtn" class="primary">
+                    <button
+                        id="decodeBtn"
+                        class="primary"
+                        type="button"
+                    >
                         ⚡ BINARY → TEXT
                     </button>
 
-                    <button id="copyBtn">
+                    <button
+                        id="copyBtn"
+                        type="button"
+                    >
                         📋 COPY
                     </button>
 
-                    <button id="clearBinaryBtn">
+                    <button
+                        id="clearBinaryBtn"
+                        type="button"
+                    >
                         🗑 CLEAR
                     </button>
 
@@ -114,7 +162,11 @@
 
 
         <!-- Status -->
-        <div id="status" class="status">
+        <div
+            id="status"
+            class="status"
+            aria-live="polite"
+        >
             <span class="status-dot"></span>
             SYSTEM READY
         </div>
@@ -139,6 +191,7 @@
             </div>
 
             <div class="social">
+
                 <a
                     href="https://www.tiktok.com/@error_game_ar?_r=1&_t=ZS-992Kh3ITMwC"
                     target="_blank"
@@ -146,6 +199,7 @@
                 >
                     🎵 TikTok: @error_game_ar
                 </a>
+
             </div>
 
             <div class="copyright">
@@ -157,8 +211,30 @@
     </main>
 
 
-    <!-- JavaScript -->
+    <!-- Main JavaScript -->
     <script src="script.js"></script>
+
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("./service-worker.js")
+                    .then(() => {
+                        console.log(
+                            "Cyber Binary Lab: Service Worker registered."
+                        );
+                    })
+                    .catch((error) => {
+                        console.error(
+                            "Service Worker registration failed:",
+                            error
+                        );
+                    });
+            });
+        }
+    </script>
 
 </body>
 </html>
